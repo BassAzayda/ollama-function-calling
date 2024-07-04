@@ -58,8 +58,6 @@ Here are some sample queries you can try:
 - "What's the current weather in New York?"
 - "Tell me a joke"
 - "How's the temperature in Tokyo right now?"
-- "What's the forecast for London tomorrow?"
-- "Give me a funny joke about programming"
 
 Feel free to experiment with different phrasings and requests to explore the AI's capabilities.
 
