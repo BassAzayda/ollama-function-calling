@@ -11,19 +11,25 @@ This is a simple chatbot built with Chainlit that can provide current weather in
 ## Requirements
 
 - Python 3.7+
-- chainlit
-- requests
-- langchain
-- langchain_experimental
+- Ollama installed and running on your system
 
 ## Installation
 
 1. Clone this repository or download the `function_call.py` file.
 
-2. Install the required packages:
+2. Create a `requirements.txt` file in the same directory with the following content:
 
    ```
-   pip install chainlit requests langchain langchain_experimental
+   chainlit
+   requests
+   langchain
+   langchain_experimental
+   ```
+
+3. Install the required packages:
+
+   ```
+   pip install -r requirements.txt
    ```
 
 ## Usage
@@ -47,3 +53,5 @@ This is a simple chatbot built with Chainlit that can provide current weather in
 ## Note
 
 This bot uses the Open-Meteo API for weather data and the Official Joke API for jokes. No API keys are required.
+
+Ollama must be installed and running on your system for this bot to function. For installation instructions, please refer to the [Ollama documentation](https://github.com/jmorganca/ollama).
