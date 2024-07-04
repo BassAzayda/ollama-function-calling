@@ -1,0 +1,4 @@
+chainlit
+requests
+langchain
+langchain_experimental
