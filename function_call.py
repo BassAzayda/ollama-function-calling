@@ -39,7 +39,7 @@ def get_current_weather(location, unit="celsius"):
     geocoding_url = "https://geocoding-api.open-meteo.com/v1/search"
     location_parts = location.split(',')
     city = location_parts[0].strip()
-    country = location_parts[1].strip() if len(location_parts) > 1 else ""
+    # country = location_parts[1].strip() if len(location_parts) > 1 else "" # Not used for now
 
     geo_params = {
         "name": city,
@@ -51,7 +51,7 @@ def get_current_weather(location, unit="celsius"):
     try:
         # First attempt to get coordinates
         logging.info(f"Fetching coordinates for {location}")
-        geo_response = requests.get(geocoding_url, params=geo_params)
+        geo_response = requests.get(geocoding_url, params=geo_params, timeout=15)  # Specify timeout here
         geo_response.raise_for_status()
         geo_data = geo_response.json()
         logging.debug(f"Geocoding response: {geo_data}")
@@ -59,7 +59,7 @@ def get_current_weather(location, unit="celsius"):
         # If first attempt fails, try with full location string
         if "results" not in geo_data or not geo_data["results"]:
             geo_params["name"] = location
-            geo_response = requests.get(geocoding_url, params=geo_params)
+            geo_response = requests.get(geocoding_url, params=geo_params, timeout=15)  # Specify timeout here
             geo_response.raise_for_status()
             geo_data = geo_response.json()
             logging.debug(f"Second geocoding attempt response: {geo_data}")
@@ -76,7 +76,7 @@ def get_current_weather(location, unit="celsius"):
 
         # Fetch weather data using coordinates
         logging.info("Fetching weather data")
-        response = requests.get(base_url, params=params)
+        response = requests.get(base_url, params=params, timeout=15)  # Specify timeout here
         response.raise_for_status()
         weather_data = response.json()
         logging.debug(f"Weather data response: {weather_data}")
@@ -111,7 +111,7 @@ def get_random_joke():
     joke_url = "https://official-joke-api.appspot.com/random_joke"
 
     try:
-        response = requests.get(joke_url)
+        response = requests.get(joke_url, timeout=15)  # Specify timeout here
         response.raise_for_status()
         joke_data = response.json()
         joke = f"{joke_data['setup']} - {joke_data['punchline']}"
