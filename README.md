@@ -1,6 +1,6 @@
-# Weather and Joke Bot
+# Ollama Function Calling Example
 
-This is a simple chatbot built with Chainlit that can provide current weather information and random jokes.
+This is a simple chatbot built with Chainlit that can provide current weather information and random jokes demonstrating the power of Ollama Function Calling. Unlike dedicated Mistral v0.3 this works with a few different models and uses the experimental OllamaFunction from Langchain.
 
 ## Features
 
